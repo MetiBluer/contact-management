@@ -1,0 +1,31 @@
+<h1 class="page-title">Contacts</h1>
+<main class="page-main">
+    <section>
+        <div class="content-container">
+            
+            <div class="contacts-list">
+                <div class="contacts-header">
+                    <h2>My Contacts</h2>
+                    <a id="add-contact" routerLink="/add-contact"><button class="add-contact-btn">Add New Contact</button></a>
+                </div>                
+                <div class="contact-grid">
+                    <!-- Contact cards would be repeated for each contact -->
+                    <div class="contact-card" *ngFor="let contact of contacts; ">
+                        <div class="contact-info" >
+                                <h3>{{contact.name}}</h3>
+                                <p>Email: {{contact.email}}</p>
+                                <p>Phone: {{contact.phone}}</p>        
+                        </div>
+                        <div class="contact-actions">
+                            <a [routerLink]="['/contact', contact.id]"><button (click)="toggleForm()" class="edit-btn">Details</button></a>
+                            
+                            <button (click)="deleteContact()" class="delete-btn">Delete</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
